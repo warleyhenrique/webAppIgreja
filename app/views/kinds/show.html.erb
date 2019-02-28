@@ -1,0 +1,34 @@
+<%= render :partial=>'shareds/topContainer'%>
+<%= render :partial=>'shareds/sidebar'%>
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+    <div class="w3-container">
+        <div class="w3-row">
+            <div class="w3-col l12">
+                <% if notice %>
+                    <div class="w3-panel w3-green w3-display-container w3-card-4">
+                      <h3>Sucesso!</h3>
+                      <span onclick="this.parentElement.style.display='none'" class="w3-button w3-green w3-large w3-display-topright">×</span>
+                      <p><%= notice %></p>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        
+        <p>
+            <strong>Descrição:</strong>
+            <%= @kind.description %>
+        </p>
+        <p>
+            <strong>Observação:</strong>
+            <%= @kind.rmk %>
+        </p>
+        <p>
+     
+        <%= link_to 'Voltar', kinds_path, :class=>"w3-btn w3-ripple w3-blue" %>
+        <%= link_to 'Editar', edit_kind_path(@kind), :class=>"w3-btn w3-ripple w3-red" %>
+        
+    </div>
+    
+    <%= render :partial=>'shareds/footer'%>
+</div>

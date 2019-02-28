@@ -1,0 +1,14 @@
+<% @kinds.each do |kind|%>
+    <tr>
+        <td><%= kind.description %></td>
+        <td><%= kind.rmk %></td>
+        <!--<td><%= link_to 'Show', kind %></td>
+        <td><%= link_to 'Edit', edit_kind_path(kind) %></td>
+        <td><%= link_to 'Destroy', kind, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        <td>
+            <%= link_to '', kind, :class=>"fa fa-eye w3-hover-text-blue opc-tbl" %>
+            <%= link_to '', edit_kind_path(kind), :class=>"fa fa-pencil-square-o w3-hover-text-green opc-tbl" %>
+            <%= link_to '', kind, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"fa fa-trash w3-hover-text-red opc-tbl" %>
+        </td>
+    </tr>
+<%end%>  

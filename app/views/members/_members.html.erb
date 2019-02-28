@@ -1,0 +1,14 @@
+<% @members.each do |member|%>
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric"><%= member.first_name %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= member.email %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= member.kind.description %></td>
+        <td><%= member.birthday %></td>
+        <td>
+            <%= link_to '', member, :class=>"fa fa-eye w3-hover-text-blue opc-tbl" %>
+            <%= link_to '', edit_member_path(member), :class=>"fa fa-pencil-square-o w3-hover-text-green opc-tbl" %>
+            <%= link_to '', member, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"fa fa-trash w3-hover-text-red opc-tbl" %>
+        </td>
+    </tr>
+<%end%>  
+        

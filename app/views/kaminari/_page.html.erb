@@ -1,0 +1,5 @@
+<% if page.current? %>
+    <%= content_tag :a, page, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)), class: 'w3-bar-item w3-button w3-red' %>
+<% else %>
+    <%= link_to page, url, remote: remote, rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)), class: 'w3-bar-item w3-button' %>
+<% end %>

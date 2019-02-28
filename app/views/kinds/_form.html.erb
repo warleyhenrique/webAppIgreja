@@ -1,0 +1,51 @@
+<div class="w3-row">
+  <div class="w3-col l12">
+    
+    <%= form_for @kind do |f| %>
+        
+      <div class="w3-row-padding">
+        <div class="w3-col l12">
+          
+          <% if @kind.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@kind.errors.count, "errors") %> Proibiram esse membro de ser salvo:</h2>
+              
+              <% @kind.errors.full_messages.each do |message| %>
+                <div class="w3-panel w3-red w3-display-container w3-card-4">
+                  <span onclick="this.parentElement.style.display='none'" class="w3-button w3-red w3-large w3-display-topright">×</span>
+                  <p><%= message %></p>
+                </div>
+              <% end %>
+              
+            </div>
+          <% end %>
+          
+        </div>
+      </div>
+        
+      <div class="w3-row-padding">
+       
+        <div class="w3-row-padding w3-margin-top-7">
+          <div class="w3-col m4">
+            <%= f.label :description %>
+            <%= f.text_field :description, id: :kind_description, :class=>"w3-input w3-border w3-round" %>
+          </div>
+        </div>
+        
+        <div class="w3-row-padding">
+          <div class="w3-col m4">
+            <%= f.label :rmk %>
+            <%= f.text_field :rmk, id: :kind_rmk, :class=>"w3-input w3-border w3-round" %>
+          </div>
+        </div>
+        <br>
+        <div class="w3-row-padding">
+          <div class="w3-col actions">
+            <%= f.submit class:"w3-btn w3-ripple w3-blue" %>
+            <%= link_to 'Voltar', kinds_path, :class=>"w3-btn w3-ripple w3-red" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

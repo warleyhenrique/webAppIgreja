@@ -1,0 +1,58 @@
+<%= render :partial=>'shareds/topContainer'%>
+<%= render :partial=>'shareds/sidebar'%>
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+    
+    <!-- Header -->
+    <% if notice %>
+        <div class="w3-container">
+            <div class="w3-panel w3-green w3-display-container w3-card-4">
+              <span onclick="this.parentElement.style.display='none'" class="w3-button w3-green w3-large w3-display-topright">×</span>
+              <p><%= notice %></p>
+            </div>
+        </div>
+    <% end %>
+    <header class="w3-container" style="padding-top:22px">
+        <h3><b><i class="fa fa-users"></i>Tipo de Membros</b></h3>
+    </header>
+    <div class="w3-container w3-margin-bottom-3">
+        <div class="w3-row">
+            <div class="w3-col m6">
+                <%= link_to(new_kind_path, :class=>"w3-btn w3-ripple w3-blue") do %>
+                    Novo Tipo de Membro <i class="fa fa-plus"></i>
+                <%end%>
+            </div>
+            <div class="w3-col m6">
+                <%= form_tag(search_kinds_path, method: :get, :remote => true, :class => 'w3-right')  do %>
+                    <%= text_field_tag :search, params[:search], class:"w3-input w3-border custom-search" %>
+                    <%= submit_tag 'Search', name: nil, class:"w3-btn w3-ripple w3-blue custom-search" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    
+    <div class="w3-container" >
+        <div style="overflow-x:auto;">
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Observção</th>
+                    <th colspan="3">Ações</th>
+                </thead>
+                <tbody id="table_kinds">
+                    <%= render partial: 'kinds'%>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="w3-row">
+            <div class="w3-col m6">
+                <%= "Total: #{@kinds.total_count}" %>
+            </div>
+            <div class="w3-col m6">
+                <%= paginate @kinds, window: 2%>
+            </div>
+        </div>
+    </div>
+    <%= render :partial=>'shareds/footer'%>
+</div>

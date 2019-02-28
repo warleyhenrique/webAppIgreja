@@ -1,0 +1,98 @@
+<%= render :partial=>'shareds/topContainer'%>
+<%= render :partial=>'shareds/sidebar'%>
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+    <div class="w3-container">
+        <div class="w3-row">
+            <div class="w3-col l12">
+                <% if notice %>
+                    <div class="w3-panel w3-green w3-display-container w3-card-4">
+                      <h3>Sucesso!</h3>
+                      <span onclick="this.parentElement.style.display='none'" class="w3-button w3-green w3-large w3-display-topright">×</span>
+                      <p><%= notice %></p>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        
+        <p>
+            <strong>Nome:</strong>
+            <%= @member.full_name %>
+        </p>
+        <p>
+            <strong>Nome do Pai:</strong>
+            <%= @member.father_name %>
+        </p>
+        <p>
+            <strong>Nome da Mãe:</strong>
+            <%= @member.monther_name %>
+        </p>
+        <p>
+            <strong>Sexo:</strong>
+            <%= @member.sex %>
+        </p>
+        <p>
+            <strong>Data de Nascimento:</strong>
+            <%= @member.birthday %>
+        </p>
+        <p>
+            <strong>Data do Batismo:</strong>
+            <%= @member.baptism_date %>
+        </p>
+        <p>
+            <strong>Naturalidade:</strong>
+            <%= @member.place_of_birth %>
+        </p>
+        <p>
+            <strong>Estado Civil:</strong>
+            <%= @member.marital_status %>
+        </p>
+        <p>
+            <strong>Email:</strong>
+            <%= @member.email %>
+        </p>
+        <p>
+            <strong>Escolaridade:</strong>
+            <%= @member.schooling %>
+        </p>
+        <p>
+            <strong>Profissão:</strong>
+            <%= @member.profession %>
+        </p>
+        <p>
+            <strong>CPF:</strong>
+            <%= @member.cpf %>
+        </p>
+        <p>
+            <strong>rg:</strong>
+            <%= @member.rg %>
+        </p>
+        <p>
+            <strong>Emisso da RG:</strong>
+            <%= @member.rg_emitter %>
+        </p>
+        <p>
+            <strong>Titulo de Eleitor:</strong>
+            <%= @member.voters_title %>
+        </p>
+        <p>
+            <strong>Titulo de Membro:</strong>
+            <%= @member.kind.description %>
+        </p>
+      
+        <% unless @member.phones.blank?%>
+            <% @member.phones.each do |p|%>
+                <p>
+                  <strong>Telefone:</strong>
+                  <%= p.phone %>
+                </p>
+            <% end %>
+        <% end %>
+        
+        <%= link_to 'Voltar', members_path, :class=>"w3-btn w3-ripple w3-blue" %>
+        <%= link_to 'Editar', edit_member_path(@member), :class=>"w3-btn w3-ripple w3-red" %>
+        
+    </div>
+    
+    <%= render :partial=>'shareds/footer'%>
+</div>

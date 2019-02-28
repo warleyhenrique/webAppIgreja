@@ -1,0 +1,71 @@
+<%= render :partial=>'shareds/topContainer'%>
+<%= render :partial=>'shareds/sidebar'%>
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+    
+    <!-- Header -->
+    <% if notice %>
+        <div class="w3-container">
+            <div class="w3-panel w3-green w3-display-container w3-card-4">
+              <span onclick="this.parentElement.style.display='none'" class="w3-button w3-green w3-large w3-display-topright">×</span>
+              <p><%= notice %></p>
+            </div>
+        </div>
+    <% end %>
+    
+    <header class="w3-container" style="padding-top:22px">
+        <h3><b><i class="fa fa-users"></i>Membros</b></h3>
+    </header>
+    
+    <div class="w3-container">
+
+    <div class="w3-margin-bottom-3">
+        <div class="w3-row">
+            <div class="w3-col m6">
+                <%= link_to(new_member_path, :class=>"mdl-button mdl-js-button mdl-button--raised mdl-button--colored") do %>
+                    Novo Membro <i class="fa fa-plus"></i>
+                <%end%>
+            </div>
+            <div class="w3-col m6">
+                <%= form_tag(search_members_path, method: :get, :remote => true, :class => 'w3-right')  do %>
+                    <%= text_field_tag :search, params[:search], class:"w3-input w3-border custom-search" %>
+                    <%= submit_tag 'Search', name: nil, class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    
+    <div style="overflow-x:auto;">
+        <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp tables-admin">
+            <thead>
+                <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                <th class="mdl-data-table__cell--non-numeric">Email</th>
+                <th class="mdl-data-table__cell--non-numeric">Tipo de Membro</th>
+                <th>Aniversario</th>
+                <th>Ações</th>
+            </thead>
+            <tbody id="table_members">
+                <%= render partial:'members' %>
+            </tbody>
+        </table>
+    </div>
+    
+        <br>
+        <div class="w3-row">
+            <div class="w3-col m6">
+                <%= "Total de Membros: #{@members.total_count}" %>
+            </div>
+            <div class="w3-col m6">
+                <%= paginate @members, window: 2%>
+            </div>
+        </div>
+        
+        
+   
+
+    </div>
+    
+    
+    <%= render :partial=>'shareds/footer'%>
+</div>
+

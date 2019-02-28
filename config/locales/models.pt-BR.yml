@@ -1,0 +1,40 @@
+"pt-BR":
+  activerecord:
+    models:
+      member: Membro
+      office: Cargo
+      address: Endereço
+      phone: Telefone
+    attributes:
+      member:
+        email: E-mail
+        office_id: Cargo
+        code_member: Código de Membro
+        first_name: Primeiro Nome
+        full_name: Nome Completo
+        father_name: Nome do Pai
+        monther_name: Nome da Mãe
+        sex: Sexo
+        birthday: Data de nascimento
+        marital_status: Estado Civil
+        schooling: Escolaridade
+        profession: Profissão
+        cpf: CPF
+        rg: RG
+        rg_emitter: Emissor do RG
+        photo: Foto
+        
+        
+        
+        
+        
+        
+        
+      kind: 
+        description: Descrição
+      address: 
+        street: Rua
+        city: Cidade
+        state: Estado
+      phone:
+        phone: Telefone

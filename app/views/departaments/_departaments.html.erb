@@ -1,0 +1,9 @@
+<% @departaments.each do |departament|%>
+    <tr>
+        <td><%= departament.name %></td>
+        <td><%= departament.rmk %></td>
+        <td><%= link_to '', departament, :class=>"fa fa-eye w3-hover-text-blue opc-tbl" %>
+        <%= link_to '', edit_departament_path(departament), :class=>"fa fa-pencil-square-o w3-hover-text-green opc-tbl" %>
+        <%= link_to '', departament, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"fa fa-trash w3-hover-text-red opc-tbl" %></td>
+    </tr>
+<%end%>  
