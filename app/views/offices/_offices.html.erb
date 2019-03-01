@@ -1,0 +1,13 @@
+<% @offices.each do |office|%>
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric"><%= office.role.name %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= office.departament.name %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= office.member.first_name %></td>
+        <td>
+            <%= link_to '', office, :class=>"fa fa-eye w3-hover-text-blue opc-tbl" %>
+            <%= link_to '', edit_office_path(office), :class=>"fa fa-pencil-square-o w3-hover-text-green opc-tbl" %>
+            <%= link_to '', office, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"fa fa-trash w3-hover-text-red opc-tbl" %>
+        </td>
+    </tr>
+<%end%>  
+        

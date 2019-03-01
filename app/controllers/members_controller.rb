@@ -74,20 +74,5 @@ class MembersController < ApplicationController
         first_name = array_nome[0]
     end
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-  
   
 end
