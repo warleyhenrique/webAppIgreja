@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'offices/new'
+
+  get 'offices/create'
+
   # Members
   get "/members/search" => 'members#search', as: 'search_members'
   resources :members
