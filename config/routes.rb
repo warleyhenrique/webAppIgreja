@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'roles/new'
+
+  get 'roles/create'
+
   get 'offices/new'
 
   get 'offices/create'

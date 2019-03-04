@@ -76,3 +76,15 @@ puts "Gerando Membros (Members)...................[  ]"
     
 puts "Gerando os Contatos (Members)...................[OK]"
 
+puts "Gerando os Cargos (Office)..."
+    2.times do |i|
+        Office.create!([
+            {role: Role.all.sample},
+            {departament: Departament.all.sample},
+            {member: Member.all.sample}])
+    end
+puts "Gerando os Gargos (Office)...[OK]"
+
+
+
+
